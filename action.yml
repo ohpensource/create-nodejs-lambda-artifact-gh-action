@@ -1,0 +1,53 @@
+name: "create-nodejs-artifact"
+description: "creates the artifact (.zip) for the provided nodejs application"
+inputs:
+  region:
+    description: "aws region name"
+    required: true
+  access-key:
+    description: "access key"
+    required: true
+  secret-key:
+    description: "secret key"
+    required: true
+  account:
+    description: "aws account id"
+    required: true
+  role-name:
+    description: "role to assume"
+    required: true
+  version:
+    description: "version of the service"
+    required: true
+  service-name:
+    description: "name of the service"
+    required: true
+  project-name:
+    description: "name of the project"
+    required: true
+  project-folder:
+    description: "package.json location"
+    required: true
+  script-name:
+    description: "Name of the script that nodejs will execute to pack your application"
+    required: true
+  bucket-name:
+    description: "bucket name where to store the artifact"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        ${{ github.action_path }}/create-nodejs-lambda-artifact.sh \
+          ${{ inputs.region }} \
+          ${{ inputs.access-key }} \
+          ${{ inputs.secret-key }} \
+          ${{ inputs.account }} \
+          ${{ inputs.role-name }} \
+          ${{ inputs.version }} \
+          ${{ inputs.service-name }} \
+          ${{ inputs.project-name }} \
+          ${{ inputs.project-folder }} \
+          ${{ inputs.script-name }} \
+          ${{ inputs.bucket-name }}
+      shell: bash
