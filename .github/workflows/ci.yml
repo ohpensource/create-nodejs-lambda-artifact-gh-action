@@ -12,11 +12,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: ohpensource/ensure-conventional-commits-gh-action@v0.1.2
-        name: Ensure conventional commits
+      - uses: ohpensource/ensure-conventional-commits-gh-action@v1.1.4
         with:
-          base-branch: $GITHUB_BASE_REF
-          pr-branch: $GITHUB_HEAD_REF
+          settings-file: repo-config.json
 
   # make sure the next name is in the branch_protection.checks_list in your repo tfvars in the ohpensource-repo-provisioning
   jira-tickets-commits:
@@ -26,7 +24,6 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ohpensource/ensure-commits-have-ticket-gh-action@v0.0.4
-        name: Ensure Jira ticket in all commits
         with:
           base-branch: $GITHUB_BASE_REF
           pr-branch: $GITHUB_HEAD_REF
