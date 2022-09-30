@@ -47,8 +47,8 @@ jobs:
         name: Create and upload lambda artifact
         with:
           region: $REGION
-          access-key: $COR_AWS_ACCESS_KEY_ID
-          secret-key: $COR_AWS_SECRET_ACCESS_KEY
+          access-key: ${{ secrets.COR_AWS_ACCESS_KEY_ID }}
+          secret-key: ${{ secrets.COR_AWS_SECRET_ACCESS_KEY }}
           account: $ARTIFACTS_AWS_ACCOUNT_ID
           role-name: $COR_CICD_AUTOMATION_ROLE_NAME
           version: $GITHUB_HEAD_REF
