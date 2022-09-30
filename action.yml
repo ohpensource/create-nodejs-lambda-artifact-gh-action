@@ -39,15 +39,15 @@ runs:
   steps:
     - run: |
         ${{ github.action_path }}/create-nodejs-lambda-artifact.sh \
-          ${{ inputs.region }} \
-          ${{ inputs.access-key }} \
-          ${{ inputs.secret-key }} \
-          ${{ inputs.account }} \
-          ${{ inputs.role-name }} \
-          ${{ inputs.version }} \
-          ${{ inputs.service-name }} \
-          ${{ inputs.project-name }} \
-          ${{ inputs.project-folder }} \
-          ${{ inputs.script-name }} \
-          ${{ inputs.bucket-name }}
+          "${{ inputs.region }}" \
+          "${{ inputs.access-key }}" \
+          "${{ inputs.secret-key }}" \
+          "${{ inputs.account }}" \
+          "${{ inputs.role-name }}" \
+          "${{ inputs.version }}" \
+          "${{ inputs.service-name }}" \
+          "${{ inputs.project-name }}" \
+          "${{ inputs.project-folder }}" \
+          "${{ inputs.script-name }}" \
+          "${{ inputs.bucket-name }}"
       shell: bash
